@@ -1,6 +1,6 @@
 # SoundHunt 全平台推广文案包
 
-> 基于 v3.2.6 真实功能与源码撰写，所有技术细节均可在仓库中核对。
+> 基于 v3.2.7 真实功能与源码撰写，所有技术细节均可在仓库中核对。
 > 项目地址：<https://github.com/SamislandHub/SoundHunt>
 >
 > ⚠️ **发布前必读 · 合规红线**
@@ -69,7 +69,7 @@
 - 自己写一个音乐推荐引擎，怎么避免一直推同一个歌手的歌？
 
 **酷安 / V2EX**
-- 【开源】声搜 SoundHunt：上下滑切歌的沉浸式音乐播放器
+- 【开源】小点声 SoundHunt：上下滑切歌的沉浸式音乐播放器
 - Show HN 风格：SoundHunt — 一个纯 Java 自绘 UI 的 B 站音源播放器
 
 **小红书**
@@ -252,7 +252,7 @@ private float diversityPenalty(Scored s, Map<String,Integer> artistCount,
 
 ### 回答
 
-推荐一个我自己写的开源项目 **SoundHunt**（声搜），思路就是「把听歌做成刷短视频」：打开自动播推荐，上下滑切歌，轻点暂停。GitHub 搜 SoundHunt 能找到。
+推荐一个我自己写的开源项目 **SoundHunt**（小点声），思路就是「把听歌做成刷短视频」：打开自动播推荐，上下滑切歌，轻点暂停。GitHub 搜 SoundHunt 能找到。
 
 几个我觉得有意思的点：
 
@@ -281,7 +281,7 @@ private float diversityPenalty(Scored s, Map<String,Integer> artistCount,
 
 ## 5. 酷安发帖
 
-> 板块：应用分享 ｜ 标题：**【开源】声搜 SoundHunt：上下滑切歌的沉浸式音乐播放器**
+> 板块：应用分享 ｜ 标题：**【开源】小点声 SoundHunt：上下滑切歌的沉浸式音乐播放器**
 
 **正文：**
 
@@ -392,4 +392,4 @@ GitHub 搜 **SoundHunt**，Release 里有签名 APK，README 有真机截图。�
 
 ---
 
-*文案包版本：v1.0 · 对应 SoundHunt v3.2.6 · 生成于 2026-11-21*
+*文案包版本：v1.0 · 对应 SoundHunt v3.2.7 · 生成于 2026-11-21*
