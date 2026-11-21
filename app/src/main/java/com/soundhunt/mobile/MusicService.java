@@ -96,7 +96,7 @@ public class MusicService extends Service {
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         NotificationManager nm = getSystemService(NotificationManager.class);
         nm.createNotificationChannel(new NotificationChannel(CHANNEL, "音乐播放", NotificationManager.IMPORTANCE_LOW));
-        mediaSession = new MediaSession(this, "八音盒");
+        mediaSession = new MediaSession(this, "小点声");
         mediaSession.setFlags(MediaSession.FLAG_HANDLES_TRANSPORT_CONTROLS | MediaSession.FLAG_HANDLES_MEDIA_BUTTONS);
         mediaSession.setCallback(new MediaSession.Callback() {
             @Override public void onPlay() { resume(); }
@@ -558,7 +558,7 @@ public class MusicService extends Service {
         Notification.Builder builder = new Notification.Builder(this, CHANNEL)
                 .setSmallIcon(android.R.drawable.ic_media_play)
                 .setColor(Theme.ACCENT)
-                .setContentTitle(current == null ? "八音盒" : current.title)
+                .setContentTitle(current == null ? "小点声" : current.title)
                 .setContentText(current == null ? "挑一首开始听" : current.artist + " · " + current.sourceLabel())
                 .setContentIntent(contentIntent)
                 .setOnlyAlertOnce(true)
