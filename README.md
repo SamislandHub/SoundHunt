@@ -1,8 +1,8 @@
-# 声搜 SoundHunt
+# 小点声 SoundHunt
 
 > 一个基于 B 站公开音源的沉浸式 Android 音乐播放器。纯 Java、纯代码构建 UI，无第三方 UI 框架、无网络库、无音频内容。
 
-**当前版本：v3.2.6（versionCode 62）** · 最低 Android 8.0（API 26） · 许可证 MIT
+**当前版本：v3.2.7（versionCode 63）** · 最低 Android 8.0（API 26） · 许可证 MIT
 
 进入即播放推荐热歌，上下滑切歌，像刷短视频一样听歌。合集自动展开为分 P 选集，支持三档音质、相邻曲目纯音频预加载、收藏画像推荐与深浅色主题。
 
@@ -10,7 +10,7 @@
 
 ## 界面速览
 
-以下均为 **v3.2.6 真机运行截图**（Android 模拟器 1080×1920，非设计稿渲染）：
+以下均为 **v3.2.7 真机运行截图**（Android 模拟器 1080×1920，非设计稿渲染）：
 
 <table align="center">
 <tr>
@@ -87,14 +87,14 @@
 | 文件 | 说明 |
 |---|---|
 | `app/src/main/` | 完整可编译源码（19 个 Java 文件 + 资源） |
-| `releases/SoundHunt-v3.2.6.apk` | 已签名 APK，可直接安装 |
+| `releases/SoundHunt-v3.2.7.apk` | 已签名 APK，可直接安装 |
 | `docs/DESIGN.html` | 交互式设计说明，浏览器打开可切深浅色 |
 | `docs/screens/*.png` | 6 张界面预览图（5 页 + 浅色首页） |
 | `gradlew` / `gradle/` | Gradle 8.11.1 wrapper |
 
 ### 2.3 版本信息
 
-- `versionName`：`3.2.6`
+- `versionName`：`3.2.7`
 - `versionCode`：`62`
 - 签名 SHA-256：`614644…177d`（与历史版本同证书，可覆盖安装）
 
