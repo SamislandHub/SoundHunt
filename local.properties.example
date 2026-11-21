@@ -1,0 +1,11 @@
+# 复制本文件为 local.properties（该文件已被 .gitignore 忽略，不会入库）
+
+# Android SDK 路径，按你本机的实际位置修改
+sdk.dir=/opt/android-sdk
+
+# 可选：仅当你需要构建“自己的”正式签名包时才填以下四项。
+# 留空也能直接 ./gradlew assembleDebug 或用 IDE 运行。
+# release.storeFile=../my-keys/my-release.jks
+# release.storePassword=你的密钥库口令
+# release.keyAlias=你的别名
+# release.keyPassword=你的密钥口令

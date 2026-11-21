@@ -1,0 +1,28 @@
+# Gradle / 构建产物
+.gradle/
+build/
+*/build/
+*.apk
+*.aab
+*.idsig
+!releases/*.apk
+
+# 本地配置（含 SDK 路径与签名凭据）
+local.properties
+
+# 签名密钥 —— 绝不入库
+*.jks
+*.keystore
+签名密钥/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# 缓存 / 日志
+*.log
+captures/
+.externalNativeBuild/
+.cxx/

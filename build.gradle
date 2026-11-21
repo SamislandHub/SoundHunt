@@ -1,0 +1,5 @@
+// 顶层构建文件：Android Gradle Plugin 版本在此统一声明。
+// 项目使用 Gradle 8.11.1（见 gradle/wrapper/gradle-wrapper.properties）。
+plugins {
+    id 'com.android.application' version '8.7.3' apply false
+}

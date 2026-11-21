@@ -1,0 +1,56 @@
+plugins {
+    id 'com.android.application'
+}
+
+// 读取本地属性（local.properties 不入库，见 .gitignore）
+Properties localProps = new Properties()
+File localFile = rootProject.file('local.properties')
+if (localFile.exists()) {
+    localFile.withInputStream { localProps.load(it) }
+}
+
+// 签名凭据：优先环境变量，其次 local.properties。
+// 缺任一项则不配置 release 签名，仍可构建未签名 APK（gradlew assembleDebug 无需任何密钥）。
+def releaseStoreFile = System.getenv('SOUNDHUNT_STORE_FILE') ?: localProps.getProperty('release.storeFile')
+def releaseStorePass = System.getenv('SOUNDHUNT_STORE_PASSWORD') ?: localProps.getProperty('release.storePassword')
+def releaseKeyAlias = System.getenv('SOUNDHUNT_KEY_ALIAS') ?: localProps.getProperty('release.keyAlias')
+def releaseKeyPass = System.getenv('SOUNDHUNT_KEY_PASSWORD') ?: localProps.getProperty('release.keyPassword')
+def hasReleaseSigning = releaseStoreFile && releaseStorePass && releaseKeyAlias && releaseKeyPass
+
+android {
+    namespace 'com.soundhunt.mobile'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.soundhunt.mobile'
+        minSdk 26
+        targetSdk 35
+        versionCode 62
+        versionName '3.2.6'
+    }
+
+    signingConfigs {
+        if (hasReleaseSigning) {
+            release {
+                storeFile file(releaseStoreFile)
+                storePassword releaseStorePass
+                keyAlias releaseKeyAlias
+                keyPassword releaseKeyPass
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            if (hasReleaseSigning) signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
