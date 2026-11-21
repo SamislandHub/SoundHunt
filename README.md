@@ -180,38 +180,18 @@ org.gradle.parallel=true
 
 ### 4.1 总体架构
 
-```
-                   ┌──────────────────────────────┐
-                   │          UI 层（纯 Java）      │
-                   │ ImmersiveActivity  首页/收藏   │
-                   │ MainActivity       搜索        │
-                   │ PlayerActivity     播放/选集   │
-                   │ SettingsActivity   设置        │
-                   └───────────────┬──────────────┘
-                                   │ bindService + Binder
-                   ┌───────────────▼──────────────┐
-                   │      MusicService（前台服务）   │
-                   │ MediaPlayer / 队列 / 来源标记   │
-                   │ 预加载调度 / 播放状态广播       │
-                   └───────┬───────────────┬──────┘
-                           │               │
-            ┌──────────────▼──┐   ┌────────▼─────────┐
-            │ AudioCache      │   │ BiliClient       │
-            │ 纯音频本地缓存   │   │ 搜索/wbi/流解析   │
-            └─────────────────┘   └────────┬─────────┘
-                                           │
-                           ┌───────────────▼──────────────┐
-                           │ SearchRepository              │
-                           │ 并发搜索编排 + 推荐数据池      │
-                           └───────────────┬──────────────┘
-                                           │
-                           ┌───────────────▼──────────────┐
-                           │ RecommendEngine              │
-                           │ 打分 / 画像 / MMR 打散        │
-                           └──────────────────────────────┘
-```
+![SoundHunt 总体架构图](docs/architecture.svg)
 
-所有页面通过 `bindService` 拿到同一个 `MusicService` 实例，共享播放状态和队列，避免多 Activity 各自持有播放器导致的状态漂移。
+系统自顶向下分为 **UI 表现层 → 播放服务层 → 数据与音源层 → 推荐引擎层** 四层：
+
+| 层 | 核心职责 |
+|---|---|
+| UI 表现层 | 4 个 Activity，沉浸首页、搜索、播放选集、设置，纯 Java 自绘 |
+| 播放服务层 | `MusicService` 前台服务，持有 `MediaPlayer` 与队列，经 Binder 对外暴露 |
+| 数据与音源层 | `AudioCache` 纯音频本地缓存 + `BiliClient` 音源检索与流解析 |
+| 推荐引擎层 | `SearchRepository` 并发编排 + `RecommendEngine` 四信号打分与打散 |
+
+所有页面通过 `bindService` 拿到同一个 `MusicService` 实例，共享播放状态和队列，避免多 Activity 各自持有播放器导致的状态漂移。推荐引擎产出的队列交给服务层播放，触底后由 `SearchRepository` 续拉，形成无限推荐闭环。
 
 ### 4.2 音源与播放链路
 
