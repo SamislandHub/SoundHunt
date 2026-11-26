@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/brand/banner.svg" alt="小点声 SoundHunt" width="100%">
+</p>
+
 # 小点声 SoundHunt
 
 > 一个基于 B 站公开音源的沉浸式 Android 音乐播放器。纯 Java、纯代码构建 UI，无第三方 UI 框架、无网络库、无音频内容。
@@ -5,6 +9,8 @@
 **当前版本：v3.2.7（versionCode 63）** · 最低 Android 8.0（API 26） · 许可证 MIT
 
 进入即播放推荐热歌，上下滑切歌，像刷短视频一样听歌。合集自动展开为分 P 选集，支持三档音质、相邻曲目纯音频预加载、收藏画像推荐与深浅色主题。
+
+> 💻 **想要电脑版？** 本项目的 Windows 桌面版（Electron + Web，完整复刻、共用 B 站音源与推荐算法）见 **[SoundHunt-Desktop](https://github.com/SamislandHub/SoundHunt-Desktop)**，提供安装版与便携版 exe。
 
 ---
 
